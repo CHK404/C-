@@ -78,6 +78,141 @@ namespace WindowsFormsApp_02_variable
             textBox_print.Text += piF.GetType() + "System.Float piF: " + piF.ToString() + "\r\n";
             textBox_print.Text += piDou.GetType() + "System.Double piDou: " + piDou.ToString() + "\r\n";
             textBox_print.Text += piDec.GetType() + "System.Decimal piDec: " + piDec.ToString() + "\r\n";
+
+            // #연산자
+            /*
+             * 대입 연산자(=)
+             * : 변수에 값을 할당 할때 사용하는 연산자
+             * 
+             * 산술 연산자
+             * 사칙 연산 : +, -, /, *
+             * 나머지 연산: %
+             * 거듭제곱 : Math.Pow() 메서드
+             */
+
+            int a = 5;
+            int b = 2;
+            //TextBox 컨트롤은 사용자에게 텍스트(문자열)를 보여주기 위한 도구
+            //textBox_print.Text의 자료형이 string(문자열)
+            textBox_print.Text = a.ToString();
+            //ㄴ숫자를 바로 넣을 수 없음
+
+            //#1. 형변환 방법 (.ToString() 사용)
+            textBox_print.Text = (a + b).ToString() + "\r\n";
+
+            //#2. 문자열 보간 방법
+            //$"{표현식}" 형태
+            //ㄴ 안에 있는 코드를 계산하고 자동으로 문자열로 만들어줌
+            //ㄴ 깔끔하고 가독성이 좋아 자주 사용됨
+            textBox_print.Text += $"{a - b} \r\n";
+            textBox_print.Text += $"{a / b} \r\n";
+            textBox_print.Text += $"{a * b} \r\n";
+            textBox_print.Text += $"{a % b} \r\n";
+            //textBox_print.Text += $"{a ** b} \r\n"; (x)
+
+            //c#에서의 거듭제곱
+            //ㄴ 문법적으로 **연산자가 존재x
+            //ㄴ Math.Pow()라는 메서드를 사용
+            //ㄴ Math.Pow(밑, 지수) 형태로 사용
+            //ㄴ 결과는 항상 double로 반환
+            textBox_print.Text += $"{Math.Pow(a, b)} \r\n"; //5^2 = 25
+            //제곱근
+            //Math.Sqrt() 사용
+            textBox_print.Text += $"{Math.Sqrt(9)} \r\n"; //3
+
+            //비교 연산자
+            //#1. 동등 비교: 같다 / 같지않다
+            textBox_print.Text += $"{1 == 1} \r\n"; //True
+            textBox_print.Text += $"{1 == 2} \r\n"; //False
+            textBox_print.Text += $"{1 != 1} \r\n"; //False
+            textBox_print.Text += $"{1 != 2} \r\n"; //True
+
+            //#2. 크기 비교
+            textBox_print.Text += $"{2 > 1} \r\n"; //True
+            textBox_print.Text += $"{2 >= 2} \r\n"; //True
+            textBox_print.Text += $"{2 < 1} \r\n"; //False
+            textBox_print.Text += $"{2 <= 2} \r\n"; //True
+            textBox_print.Text += $"-------------\r\n";
+
+            //논리 연산자
+            //!: not(참 -> 거짓, 거짓 -> 참)
+            //&&: and(여러 값 중 모두가 참 -> 참)
+            //||: or(여러 값 중 하나라도 참 -> 참)
+
+            textBox_print.Text += $"{!true} \r\n"; //False
+            textBox_print.Text += $"{!false} \r\n"; //True
+            textBox_print.Text += $"{!!true} \r\n"; //True
+            textBox_print.Text += $"{!!false} \r\n"; //False
+
+            textBox_print.Text += $"{true && true} \r\n"; //True
+            textBox_print.Text += $"{true && false} \r\n"; //False
+            textBox_print.Text += $"{false && false} \r\n"; //False
+
+            textBox_print.Text += $"{true || true} \r\n"; //True
+            textBox_print.Text += $"{true || false} \r\n"; //True
+            textBox_print.Text += $"{false || false} \r\n"; //False
+            textBox_print.Text += $"-------------\r\n";
+
+            //증감 연산자
+            //++: 변수 값을 1 증가
+            //--: 변수 값을 1 감소
+            //증감 연산자를 붙이는 위치에 따라 결과가 다르다
+            int result1, result2;
+            int num = 10, num2 = 10;
+
+            //후위 증감(postfix)
+            //변수를 먼저 사용하고 이후에 1 증가/감소
+            result1 = num++;
+            textBox_print.Text = result1.ToString() + "\r\n"; //10
+            textBox_print.Text += num.ToString() + "\r\n"; //11 
+
+            //전위 증감(prefix)
+            //변수를 먼저 증가/감소 시키고 사용
+            result2 = ++num2;
+            textBox_print.Text = result2.ToString() + "\r\n"; //11
+            textBox_print.Text += num2.ToString() + "\r\n"; //11 
+
+            //연산자 줄여쓰기
+            //+=, -= 연산자를 더 자주 사용
+            textBox_print.Text = $"{num += 1} \r\n"; //12
+            textBox_print.Text = $"{num2 -= 1} \r\n"; //10
+            textBox_print.Text = $"{num *= num2} \r\n"; //120
+            textBox_print.Text = $"{num /= num2} \r\n"; //12 (num = 120, num2 = 10)
+
+            //실습
+            //Q1
+            string name = "사과";
+            int price = 1200;
+            int quantity = 8;
+            int totalPrice = price * quantity;
+
+            textBox1.Text += name.ToString() + " " + quantity.ToString() + "개의 총 가격은 " + totalPrice.ToString() + "원 입니다. \r\n";
+
+            //Q2
+            string numInString = "15";
+            int numValue;
+            numValue = int.Parse(numInString);
+            numValue += 10;
+
+            textBox2.Text += "15에 10을 더하면 " + numValue.ToString() + "입니다. \r\n";
+
+            //Q3
+            string proN= "노트북";
+            int proP = 1200000;
+            float proDc = 0.15f;
+            byte proQt = 8;
+            bool isAvailable = true;
+
+            double dcPrice = proP * (1 - proDc);
+
+            //할인 가격은 "가격 x (1 - 할인율)"
+            //계산 결과는 소수점이 나올수 있으니 double로 저장
+            textBox1.Text = (isAvailable == true) ? "구매 가능:할인 가격은 " + dcPrice.ToString() + "원 입니다." : "품절되었습니다.";
+
+            textBox2.Text = (proQt >= 5) ? "여유 있음" : "소량 남음";
+
+            textBox3.Text += "상품명: " + proN.ToString() + ", 할인된 가격: " + dcPrice.ToString() + "원, 재고: " + proQt.ToString() + "개";
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -86,6 +221,11 @@ namespace WindowsFormsApp_02_variable
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
 
         }
