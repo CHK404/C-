@@ -64,21 +64,20 @@ namespace WindowsFormsApp_02_variable
             //int outside = inside + 50;
             //inside와 scope가 달라서 사용 불가
 
-            textBox_print.Text += numOfCrew.GetType() + "numOfCrew: " + numOfCrew.ToString() + "\r\n";
+            //실습. 변수 및 캐스팅
+            byte classNum = 15;
+            short temp = 15;
+            int aprilDays = 30;
+            float piF = 3.14159f;
+            double piDou = 3.141592653589793;
+            decimal piDec = 3.1415926535897932384626433832m;
 
-            byte byteTest = 20;
-            short shortTest = -25;
-            int intTest = 30;
-            float floatTest = -40;
-            double doubleTest = 50;
-            decimal decimalTest = -50;
-
-            textBox_print.Text += byteTest.GetType() + "System.Byte : " + numOfCrew.ToString() + "\r\n";
-            textBox_print.Text += shortTest.GetType() + "System.Short: " + numOfCrew.ToString() + "\r\n";
-            textBox_print.Text += intTest.GetType() + "System.Int: " + numOfCrew.ToString() + "\r\n";
-            textBox_print.Text += floatTest.GetType() + "System.Float: " + numOfCrew.ToString() + "\r\n";
-            textBox_print.Text += doubleTest.GetType() + "System.Double: " + numOfCrew.ToString() + "\r\n";
-            textBox_print.Text += decimalTest.GetType() + "System.Decimal: " + numOfCrew.ToString() + "\r\n";
+            textBox_print.Text += classNum.GetType() + "System.Byte classNum: " + classNum.ToString() + "\r\n";
+            textBox_print.Text += temp.GetType() + "System.Short temp: " + temp.ToString() + "\r\n";
+            textBox_print.Text += aprilDays.GetType() + "System.Int aprilDays: " + aprilDays.ToString() + "\r\n";
+            textBox_print.Text += piF.GetType() + "System.Float piF: " + piF.ToString() + "\r\n";
+            textBox_print.Text += piDou.GetType() + "System.Double piDou: " + piDou.ToString() + "\r\n";
+            textBox_print.Text += piDec.GetType() + "System.Decimal piDec: " + piDec.ToString() + "\r\n";
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
